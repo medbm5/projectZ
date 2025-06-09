@@ -29,6 +29,52 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+
+## Project Structure
+/
+├── .env                  # Environment variables
+├── .env.local            # Local development env
+├── next.config.js
+├── package.json
+├── sentry.client.config.ts # Sentry client config
+├── sentry.server.config.ts # Sentry server config
+├── tsconfig.json
+│
+├── /app/                 # Next.js App Router (src/app if using src structure)
+│   ├── /(auth)/          # Public auth routes (sign-in, sign-up, etc.)
+│   ├── /dashboard/       # Protected application area
+│   └── /api/             # API routes
+│
+├── /components/          # Shared and reusable React components
+│   ├── /ui/              # General-purpose UI elements (e.g., from shadcn/ui)
+│   ├── /forms/           # Reusable form components
+│   └── /layout/          # Layout components (Sidebar, Topbar, etc.)
+│
+├── /features/            # Business logic and hooks, organized by feature
+│   ├── /auth/            # Authentication logic and Supabase helpers
+│   ├── /billing/         # Stripe and billing management logic
+│   ├── /settings/        # User settings logic
+│   └── ...
+│
+├── /hooks/               # General-purpose reusable hooks
+│
+├── /lib/                 # Library initializations and core helpers
+│   ├── /supabase/        # Supabase client and admin client setup
+│   ├── /stripe/          # Stripe client and webhook handlers
+│   └── /api/             # API helpers (e.g., TRPC client, fetcher)
+│
+├── /public/              # Static assets (images, fonts, etc.)
+│
+├── /store/               # Global state management (Zustand)
+│
+├── /styles/              # Global CSS styles
+│
+├── /types/               # Global TypeScript type definitions
+│
+└── /utils/               # General utility functions (formatting, validation, etc.)
+
+
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
